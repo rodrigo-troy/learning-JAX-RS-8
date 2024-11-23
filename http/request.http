@@ -1,0 +1,5 @@
+### GET request
+GET {{url}}/api/hello-world
+
+
+###
