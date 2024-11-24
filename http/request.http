@@ -1,7 +1,6 @@
 ### GET request
 GET {{url}}/api/hello-world
 
-
 ### ADD
 POST {{url}}/api/math/operation
 Content-Type: application/json
@@ -17,7 +16,6 @@ Content-Type: application/json
         client.assert(response.status === 200, "Response status is not 200");
     });
 %}
-
 
 ### DIVIDE WITH ERROR
 POST {{url}}/api/math/operation
@@ -50,7 +48,6 @@ Content-Type: application/json
         client.assert(response.status === 200, "Response status is not 200");
     });
 %}
-
 
 ### SUBTRACT
 POST {{url}}/api/math/operation
