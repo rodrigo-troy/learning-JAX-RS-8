@@ -48,6 +48,9 @@ public class MathOperationResource {
                                                       .withResult(result)
                                                       .build();
 
+        logger.info("Response: {}",
+                    response);
+
         return Response.ok()
                        .entity(response)
                        .type(MediaType.APPLICATION_JSON).build();
