@@ -1,5 +1,8 @@
 package com.rodrigotroy.learningjaxrs.domain;
 
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotNull;
+
 /**
  * Created with IntelliJ IDEA.
  * $ Project: learning-JAX-RS
@@ -9,8 +12,15 @@ package com.rodrigotroy.learningjaxrs.domain;
  */
 @javax.xml.bind.annotation.XmlRootElement
 public class OperationRequest {
+    @NotNull(message = "The first number is required")
+    @Digits(integer = 10, fraction = 2, message = "The first number must be a number")
     private Double firstNumber;
+
+    @NotNull(message = "The second number is required")
+    @Digits(integer = 10, fraction = 2, message = "The second number must be a number")
     private Double secondNumber;
+
+    @NotNull(message = "The operation is required")
     private Operation operation;
 
     public Double getFirstNumber() {
