@@ -4,7 +4,8 @@
                                    https://logging.apache.org/xml/ns/log4j-config-2.xsd">
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
-            <PatternLayout disableAnsi="false" pattern="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1} - %m%n"/>
+            <PatternLayout disableAnsi="false"
+                           pattern="%highlight{%d{ISO8601} [%-5level] [%t] %c{2}: %msg%n%throwable}{FATAL=orange, ERROR=red, WARN=yellow, INFO=white, DEBUG=green, TRACE=blue}"/>
         </Console>
     </Appenders>
     <Loggers>
