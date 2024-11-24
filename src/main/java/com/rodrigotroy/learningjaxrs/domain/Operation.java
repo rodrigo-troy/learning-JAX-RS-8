@@ -16,7 +16,12 @@ public enum Operation {
     ADD(Double::sum),
     SUBTRACT((a, b) -> a - b),
     MULTIPLY((a, b) -> a * b),
-    DIVIDE((a, b) -> a / b);
+    DIVIDE((a, b) -> {
+        if (b == 0) {
+            throw new ArithmeticException("Division by zero");
+        }
+        return a / b;
+    });
 
     @XmlTransient
     private final BiFunction<Double, Double, Double> operation;

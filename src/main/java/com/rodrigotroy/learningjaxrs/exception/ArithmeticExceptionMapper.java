@@ -1,6 +1,8 @@
 package com.rodrigotroy.learningjaxrs.exception;
 
 import com.rodrigotroy.learningjaxrs.domain.OperationResponse;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.ws.rs.core.MediaType;
 
@@ -13,8 +15,13 @@ import javax.ws.rs.core.MediaType;
  */
 @javax.ws.rs.ext.Provider
 public class ArithmeticExceptionMapper implements javax.ws.rs.ext.ExceptionMapper<ArithmeticException> {
+    private static final Logger logger = LogManager.getLogger(ArithmeticExceptionMapper.class);
+
     @Override
     public javax.ws.rs.core.Response toResponse(ArithmeticException exception) {
+        logger.error("Arithmetic exception occurred: ",
+                     exception);
+
         OperationResponse operationResponse = OperationResponse.builder()
                                                                .withIsError(true)
                                                                .withMessage(exception.getMessage())

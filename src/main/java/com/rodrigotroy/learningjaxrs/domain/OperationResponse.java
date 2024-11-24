@@ -69,4 +69,13 @@ public class OperationResponse {
             return response;
         }
     }
+
+    @Override
+    public String toString() {
+        return "OperationResponse{" +
+                "isError=" + isError +
+                ", message='" + message + '\'' +
+                ", result=" + result +
+                '}';
+    }
 }
