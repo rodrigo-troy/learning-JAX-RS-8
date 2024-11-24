@@ -65,4 +65,20 @@ Content-Type: application/json
     });
 %}
 
+### SUBTRACT WITH NULL VALUES
+POST {{url}}/api/math/operation
+Content-Type: application/json
+
+{
+  "operation": "SUBTRACT",
+  "firstNumber": null,
+  "secondNumber": null
+}
+
+> {%
+    client.test("Request executed successfully", function () {
+        client.assert(response.status === 200, "Response status is not 200");
+    });
+%}
+
 
