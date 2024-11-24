@@ -2,4 +2,70 @@
 GET {{url}}/api/hello-world
 
 
-###
+### ADD
+POST {{url}}/api/math/operation
+Content-Type: application/json
+
+{
+  "operation": "ADD",
+  "firstNumber": 1.2,
+  "secondNumber": 3.4
+}
+
+> {%
+    client.test("Request executed successfully", function () {
+        client.assert(response.status === 200, "Response status is not 200");
+    });
+%}
+
+
+### DIVIDE WITH ERROR
+POST {{url}}/api/math/operation
+Content-Type: application/json
+
+{
+  "operation": "DIVIDE",
+  "firstNumber": {{$random.float(-10.0, 10.0)}},
+  "secondNumber": 0.0
+}
+
+> {%
+    client.test("Request executed successfully", function () {
+        client.assert(response.status === 400, "Response status is 400");
+    });
+%}
+
+### MULTIPLY
+POST {{url}}/api/math/operation
+Content-Type: application/json
+
+{
+  "operation": "MULTIPLY",
+  "firstNumber": 1.2,
+  "secondNumber": 3.4
+}
+
+> {%
+    client.test("Request executed successfully", function () {
+        client.assert(response.status === 200, "Response status is not 200");
+    });
+%}
+
+
+### SUBTRACT
+POST {{url}}/api/math/operation
+Content-Type: application/json
+
+{
+  "operation": "SUBTRACT",
+  "firstNumber": 1.2,
+  "secondNumber": 3.4
+}
+
+> {%
+    client.test("Request executed successfully", function () {
+        client.assert(response.status === 200, "Response status is not 200");
+    });
+%}
+
+
