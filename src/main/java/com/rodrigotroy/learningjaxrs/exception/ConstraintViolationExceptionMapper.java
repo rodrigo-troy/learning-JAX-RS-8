@@ -29,7 +29,8 @@ public class ConstraintViolationExceptionMapper implements javax.ws.rs.ext.Excep
         String errorMessages = exception.getConstraintViolations()
                 .stream()
                 .map(ConstraintViolation::getMessageTemplate)
-                .collect(Collectors.joining(", "));
+                .sorted()
+                .collect(Collectors.joining("; "));
 
         OperationResponse operationResponse = OperationResponse.builder()
                 .withIsError(true)
