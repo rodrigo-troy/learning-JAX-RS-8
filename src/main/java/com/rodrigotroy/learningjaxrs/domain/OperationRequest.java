@@ -2,6 +2,7 @@ package com.rodrigotroy.learningjaxrs.domain;
 
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Created with IntelliJ IDEA.
@@ -10,7 +11,7 @@ import javax.validation.constraints.NotNull;
  * Date: 23-11-24
  * Time: 21:34
  */
-@javax.xml.bind.annotation.XmlRootElement
+@XmlRootElement
 public class OperationRequest {
     @NotNull(message = "The first number is required")
     @Digits(integer = 10, fraction = 6, message = "The first number must be a valid numerical value")
@@ -26,9 +27,11 @@ public class OperationRequest {
     public Double getFirstNumber() {
         return firstNumber;
     }
+
     public void setFirstNumber(Double firstNumber) {
         this.firstNumber = firstNumber;
     }
+
     public Double getSecondNumber() {
         return secondNumber;
     }
@@ -36,6 +39,7 @@ public class OperationRequest {
     public void setSecondNumber(Double secondNumber) {
         this.secondNumber = secondNumber;
     }
+
     public Operation getOperation() {
         return operation;
     }

@@ -1,5 +1,7 @@
 package com.rodrigotroy.learningjaxrs.domain;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * Created with IntelliJ IDEA.
  * $ Project: learning-JAX-RS
@@ -7,7 +9,7 @@ package com.rodrigotroy.learningjaxrs.domain;
  * Date: 23-11-24
  * Time: 21:35
  */
-@javax.xml.bind.annotation.XmlRootElement
+@XmlRootElement
 public class OperationResponse {
     private Boolean isError;
     private String message;
