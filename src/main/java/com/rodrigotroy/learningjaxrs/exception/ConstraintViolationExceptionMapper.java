@@ -4,8 +4,10 @@ import com.rodrigotroy.learningjaxrs.domain.OperationResponse;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import javax.ws.rs.core.MediaType;
+import java.util.stream.Collectors;
 
 /**
  * Created with IntelliJ IDEA.
@@ -23,9 +25,15 @@ public class ConstraintViolationExceptionMapper implements javax.ws.rs.ext.Excep
         logger.error("ConstraintViolation exception occurred: ",
                 exception);
 
+
+        String errorMessages = exception.getConstraintViolations()
+                .stream()
+                .map(ConstraintViolation::getMessageTemplate)
+                .collect(Collectors.joining(", "));
+
         OperationResponse operationResponse = OperationResponse.builder()
                 .withIsError(true)
-                .withMessage(exception.getMessage())
+                .withMessage(errorMessages)
                 .build();
 
         return javax.ws.rs.core.Response.status(javax.ws.rs.core.Response.Status.BAD_REQUEST)
