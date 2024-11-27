@@ -42,8 +42,7 @@ public class MathOperationResource {
                            .build();
         }
 
-        Double result = request.getOperation().apply(request.getFirstNumber(),
-                                                     request.getSecondNumber());
+        Double result = request.calculateResult();
 
         OperationResponse response = OperationResponse.builder()
                                                       .withIsError(false)
