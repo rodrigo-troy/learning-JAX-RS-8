@@ -3,6 +3,7 @@ package com.rodrigotroy.learningjaxrs.domain;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * Created with IntelliJ IDEA.
@@ -46,6 +47,12 @@ public class OperationRequest {
 
     public void setOperation(Operation operation) {
         this.operation = operation;
+    }
+
+    @XmlTransient
+    public Double calculateResult() {
+        return operation.apply(firstNumber,
+                               secondNumber);
     }
 
     @Override
