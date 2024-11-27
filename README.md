@@ -112,3 +112,9 @@ Contributions are welcome! Please fork the repository and create a pull request 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## API Documentation
+
+- [Swagger UI](http://localhost:8090/swagger-ui/index.html)
+- [OpenAPI JSON](http://localhost:8090/api/openapi.json)
+- [OpenAPI YAML](http://localhost:8090/api/openapi.yaml)

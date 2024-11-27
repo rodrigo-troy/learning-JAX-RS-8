@@ -1,6 +1,3 @@
-### GET request
-GET {{url}}/api/hello-world
-
 ### ADD
 POST {{url}}/api/math/operation
 Content-Type: application/json
