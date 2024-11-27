@@ -1,13 +1,11 @@
 package com.rodrigotroy.learningjaxrs;
 
-import io.swagger.v3.jaxrs2.integration.OpenApiServlet;
 import io.swagger.v3.jaxrs2.integration.resources.AcceptHeaderOpenApiResource;
 import io.swagger.v3.jaxrs2.integration.resources.OpenApiResource;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.server.ServerProperties;
-import org.glassfish.jersey.servlet.ServletProperties;
 
 import javax.ws.rs.ApplicationPath;
 
@@ -25,11 +23,8 @@ public class RestResourceConfig extends ResourceConfig {
                  true);
         property(ServerProperties.BV_DISABLE_VALIDATE_ON_EXECUTABLE_OVERRIDE_CHECK,
                  true);
-        property(ServletProperties.FILTER_STATIC_CONTENT_REGEX,
-                 "/(webjars|swagger-ui)/.*");
 
         register(OpenApiResource.class);
         register(AcceptHeaderOpenApiResource.class);
-        register(OpenApiServlet.class);
     }
 }
