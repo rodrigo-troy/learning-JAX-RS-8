@@ -2,8 +2,6 @@ package com.rodrigotroy.learningjaxrs.resource;
 
 import com.rodrigotroy.learningjaxrs.domain.OperationRequest;
 import com.rodrigotroy.learningjaxrs.domain.OperationResponse;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -22,7 +20,6 @@ import javax.ws.rs.core.Response;
  */
 @RequestScoped
 @javax.ws.rs.Path("math")
-@Tag(name = "Math operations")
 public class MathOperationResource {
     private static final Logger logger = LogManager.getLogger(MathOperationResource.class);
 
@@ -30,9 +27,9 @@ public class MathOperationResource {
     @javax.ws.rs.Path("operation")
     @javax.ws.rs.Consumes({MediaType.APPLICATION_JSON})
     @javax.ws.rs.Produces({MediaType.APPLICATION_JSON})
-    @Operation(summary = "Execute math operation")
     public Response execute(@Valid OperationRequest request) {
-        logger.info("Received operation request: {}", request);
+        logger.info("Received operation request: {}",
+                    request);
 
         if (request == null) {
             OperationResponse operationResponse = OperationResponse.builder()
