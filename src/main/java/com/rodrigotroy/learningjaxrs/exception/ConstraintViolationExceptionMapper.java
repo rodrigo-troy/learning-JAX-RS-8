@@ -7,6 +7,7 @@ import org.apache.logging.log4j.Logger;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.ext.Provider;
 import java.util.stream.Collectors;
 
 /**
@@ -16,7 +17,7 @@ import java.util.stream.Collectors;
  * Date: 24-11-24
  * Time: 19:33
  */
-@javax.ws.rs.ext.Provider
+@Provider
 public class ConstraintViolationExceptionMapper implements javax.ws.rs.ext.ExceptionMapper<ConstraintViolationException> {
     private static final Logger logger = LogManager.getLogger(ConstraintViolationExceptionMapper.class);
 
