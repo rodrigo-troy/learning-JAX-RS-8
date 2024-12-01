@@ -2,14 +2,18 @@ package com.rodrigotroy.learningjaxrs.resource;
 
 import com.rodrigotroy.learningjaxrs.domain.OperationRequest;
 import com.rodrigotroy.learningjaxrs.domain.OperationResponse;
-import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.validation.Valid;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.io.Serializable;
 
 /**
  * Created with IntelliJ IDEA.
@@ -19,14 +23,15 @@ import javax.ws.rs.core.Response;
  * Time: 21:32
  */
 @RequestScoped
-@javax.ws.rs.Path("math")
-public class MathOperationResource {
-    private static final Logger logger = LogManager.getLogger(MathOperationResource.class);
+@Path("math")
+public class MathOperationResource implements Serializable {
+    @Inject
+    private Logger logger;
 
     @POST
-    @javax.ws.rs.Path("operation")
-    @javax.ws.rs.Consumes({MediaType.APPLICATION_JSON})
-    @javax.ws.rs.Produces({MediaType.APPLICATION_JSON})
+    @Path("operation")
+    @Consumes({MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON})
     public Response execute(@Valid OperationRequest request) {
         logger.info("Received operation request: {}",
                     request);
