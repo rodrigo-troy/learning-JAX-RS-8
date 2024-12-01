@@ -1,8 +1,9 @@
 # Learning JAX-RS
 
-This project demonstrates how to create a RESTful web service using JAX-RS, along with JSON validation, custom error
-handling, and proper logging.
-
+This project showcases the development of a RESTful web service using JAX-RS and Java EE 8. It implements RESTful
+endpoints with Jersey, ensures robust input validation through the Jakarta Bean Validation API, and features custom
+error handling for improved user feedback. Detailed logging is achieved with Log4j2, while dependency injection is
+seamlessly integrated using Weld. Furthermore, the project includes comprehensive API documentation powered by Swagger.
 ## Overview
 
 The project includes:
