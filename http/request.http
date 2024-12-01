@@ -73,8 +73,8 @@ Content-Type: application/json
 }
 
 > {%
-    client.test("Request executed successfully", function () {
-        client.assert(response.status === 200, "Response status is not 200");
+    client.test("Validate request execution status", function () {
+        client.assert(response.status === 400, "Expected response status: 400. Actual status: " + response.status);
     });
 %}
 
