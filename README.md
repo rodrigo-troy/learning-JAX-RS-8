@@ -7,10 +7,12 @@ handling, and proper logging.
 
 The project includes:
 
-- Creation of RESTful endpoints using JAX-RS.
-- Validation of input data.
-- Handling of various exceptions and return of appropriate HTTP statuses.
-- Logging of request and response details.
+- Creation of RESTful endpoints using **Jersey** (JAX-RS implementation).
+- Validation of input data using **Jakarta Bean Validation API**.
+- Handling of various exceptions and return of appropriate HTTP statuses with **Jersey**.
+- Logging of request and response details using **Log4j2**.
+- CDI integration for dependency injection using **Weld** (Jakarta CDI implementation).
+- Documentation for API endpoints and usage examples using **Swagger**.
 
 ## Getting Started
 
